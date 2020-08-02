@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% load static %}
+
+</head>
+<body>
+<h1>添加页面</h1>
+<hr>
+<form action="/app/add/" method="post">
+    {% csrf_token %}
+    姓名:<input type="text" name="name"><br>
+    爱好:<input type="checkbox" name="habit" value="玩游戏">玩游戏
+    <input type="checkbox" name="habit" value="玩电动">玩电动
+    <input type="checkbox" name="habit" value="打篮球">打篮球
+    <br>
+    <input type="submit" value="提交">
+</form>
+{{ msg }}
+<a href="/app/index/">返回主页</a>
+</body>
+</html>

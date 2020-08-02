@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% load static %}
+</head>
+<body>
+<h1>主页</h1>
+<hr>
+<ul>
+    <li><a href="/app/add/">添加用户</a></li>
+    <li><a href="/app/findAll/">查询所有用户</a></li>
+    <li>
+        <form action="/app/findById/" method="post">
+            {% csrf_token %}
+            <input type="text" placeholder="输入查询编号" name="uid"><br>
+            <input type="submit" value="提交">
+        </form>
+    </li>
+</ul>
+
+</body>
+</html>

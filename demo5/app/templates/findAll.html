@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% load  static %}
+    <script type="text/javascript">
+        function del(uid) {
+            if(confirm("确认删除？"))
+                window.location.href("/app/delect/" + uid);
+        }
+        function update(uid) {
+            window.location.href('/app/update/'+ uid);
+        }
+
+    </script>
+</head>
+<body>
+<h1>展示页</h1>
+<br>
+<table cellspacing="0" style="text-align: center" width="400">
+    <thead>
+    <th>编号</th>
+    <th>姓名</th>
+    <th>爱好</th>
+    <th>操作</th>
+    </thead>
+    <tbody>
+    {% for sor in sorce %}
+        <tr>
+            <td>{{ sor.uid }}</td>
+            <td>{{ sor.name }}</td>
+            <td>{{ sor.habit }}</td>
+            <td>
+                <button onclick="update({{ sor.uid }})">修改</button>
+                <button onclick="del({{ sor.uid }})">删除</button>
+            </td>
+        </tr>
+    {% empty %}
+        <tr>
+            <td colspan="4" >没有查询到数据</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+<a href="/app/index/">返回主页</a>
+</body>
+</html>
